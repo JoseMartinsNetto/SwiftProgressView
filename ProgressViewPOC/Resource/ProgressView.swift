@@ -89,7 +89,7 @@ import UIKit
     }
     
     func decreaseProgress(_ value: CGFloat) {
-        guard progressLayer.strokeEnd > 0 else { return }
+        guard progressLayer.strokeEnd >= 0 else { return }
         
         progressLayer.strokeEnd -= value
         
