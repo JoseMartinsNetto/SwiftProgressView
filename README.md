@@ -3,9 +3,7 @@ A proof of concept of a view that has a implicit stroke layer for display some p
 
 **This app use:**
 
-        UITableViewController
-        Custom UITableViewCell
-        UIImageView
-        Auto Layout
+        CAShapeLayer
+        UIBezierPath
 
 ![](progress-view-poc.gif)
