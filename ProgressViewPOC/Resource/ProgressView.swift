@@ -7,12 +7,12 @@
 
 import UIKit
 
-class ProgressView: UIView {
+@IBDesignable class ProgressView: UIView {
     
     private lazy var trackLayer: CAShapeLayer = {
         let trackLayer = CAShapeLayer()
         trackLayer.lineWidth = progressWidth
-        trackLayer.strokeColor = trackColor.cgColor
+        trackLayer.strokeColor = trackColor?.cgColor
         trackLayer.fillColor = nil
         trackLayer.frame = bounds
         trackLayer.strokeEnd = 1
@@ -23,7 +23,7 @@ class ProgressView: UIView {
     private lazy var progressLayer: CAShapeLayer = {
         let progress = CAShapeLayer()
         progress.lineWidth = progressWidth
-        progress.strokeColor = progressColor.cgColor
+        progress.strokeColor = progressColor?.cgColor
         progress.frame = bounds
         progress.fillColor = nil
         progress.strokeEnd = 0
@@ -32,22 +32,22 @@ class ProgressView: UIView {
         return progress
     }()
     
-    var progressWidth: CGFloat = 10 {
+    @IBInspectable var progressWidth: CGFloat = 10 {
         didSet {
             progressLayer.lineWidth = progressWidth
             trackLayer.lineWidth = progressWidth
         }
     }
     
-    var trackColor: UIColor = .clear {
+    @IBInspectable var trackColor: UIColor? = .clear {
         didSet {
-            trackLayer.strokeColor = trackColor.cgColor
+            trackLayer.strokeColor = trackColor?.cgColor
         }
     }
     
-    var progressColor: UIColor = .lightGray {
+    @IBInspectable var progressColor: UIColor? = .lightGray {
         didSet {
-            progressLayer.strokeColor = progressColor.cgColor
+            progressLayer.strokeColor = progressColor?.cgColor
         }
     }
     
