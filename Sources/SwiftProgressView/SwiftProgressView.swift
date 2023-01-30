@@ -34,29 +34,29 @@ import UIKit
         return progress
     }()
     
-    @IBInspectable var progressWidth: CGFloat = 10 {
+    @IBInspectable public var progressWidth: CGFloat = 10 {
         didSet {
             progressLayer.lineWidth = progressWidth
             trackLayer.lineWidth = progressWidth
         }
     }
     
-    @IBInspectable var trackColor: UIColor? = .clear {
+    @IBInspectable public var trackColor: UIColor? = .clear {
         didSet {
             trackLayer.strokeColor = trackColor?.cgColor
         }
     }
     
-    @IBInspectable var progressColor: UIColor? = .lightGray {
+    @IBInspectable public var progressColor: UIColor? = .lightGray {
         didSet {
             progressLayer.strokeColor = progressColor?.cgColor
         }
     }
     
-    private(set) var currentProgress: CGFloat = 0
-    private(set) var currentPercentText: String = "0%"
+    private(set) public var currentProgress: CGFloat = 0
+    private(set) public var currentPercentText: String = "0%"
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         if self.layer.cornerRadius > 0 {
@@ -71,7 +71,7 @@ import UIKit
         layer.addSublayer(progressLayer)
     }
     
-    func setProgress(_ value: CGFloat) {
+    public func setProgress(_ value: CGFloat) {
         guard value <= 1 && value >= 0 else { return }
         
         if progressLayer.strokeEnd < 1 {
@@ -81,7 +81,7 @@ import UIKit
         }
     }
     
-    func increaseProgress(_ value: CGFloat) {
+    public func increaseProgress(_ value: CGFloat) {
         guard progressLayer.strokeEnd <= 1 else { return }
         
         progressLayer.strokeEnd += value
@@ -90,7 +90,7 @@ import UIKit
         currentPercentText = "\(Int(progressLayer.strokeEnd * 100))%"
     }
     
-    func decreaseProgress(_ value: CGFloat) {
+    public func decreaseProgress(_ value: CGFloat) {
         guard progressLayer.strokeEnd >= 0 else { return }
         
         progressLayer.strokeEnd -= value
