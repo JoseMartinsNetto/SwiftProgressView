@@ -9,7 +9,7 @@
 
 import UIKit
 
-@IBDesignable public class ProgressView: UIView {
+@IBDesignable public class JMProgressView: UIView {
     
     private lazy var trackLayer: CAShapeLayer = {
         let trackLayer = CAShapeLayer()
